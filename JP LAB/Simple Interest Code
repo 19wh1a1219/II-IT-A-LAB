@@ -13,7 +13,7 @@ class SimpleInterest
         int r = s.nextInt();
         System.out.print("Enter t : ");
         int t = s.nextInt();
-        double interest = p*(1+(r*t));
+        double interest = (p*r*t)/100;
         System.out.println("Simple Interest : "+interest);
     }
 }
