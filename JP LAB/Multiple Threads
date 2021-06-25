@@ -4,16 +4,23 @@ class Thread1 extends Thread
     public void run()
     {
         Random rand = new Random();
-        int num = rand.nextInt(1000);
-        if(num % 2 == 0)
+        for(int i=0; i<10; i++)
         {
-            Thread2 t2 = new Thread2(num);
-            t2.start();
-        }
-        else
-        {
-            Thread3 t3 = new Thread3(num);
-            t3.start();
+            int num = rand.nextInt(1000);
+            if(num % 2 == 0)
+            {
+                Thread2 t2 = new Thread2(num);
+                t2.start();
+            }
+            else
+            {
+                Thread3 t3 = new Thread3(num);
+                t3.start();
+            }
+            try{
+                Thread.sleep(1000);
+            }
+            catch(Exception e){}
         }
     }
 }
@@ -45,12 +52,7 @@ class MultipleThreads
 {
     public static void main(String[] args)
     {
-        try{
-            Thread1 t1 = new Thread1();
-            for(int i=0; i<5; i++)
-            {
-                t1.start();
-            }
-        }
+        Thread1 t1 = new Thread1();
+        t1.start();
     }
 }
